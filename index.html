@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unicode-Books</title>
     <style>
+        body{
+            direction: rtl;
+        }
+
         h1{
             background-color: black;
             color:white;
@@ -26,6 +30,21 @@
             background-color: #ccc;
             margin-left:auto;
             margin-right:auto;
+        }
+
+        #book-search {
+            padding: 10px;
+            margin: 5px 10px 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .search-book{
+            background-color: #ffc107;
+            width:81.4%;
+            margin-right:9.3%;
+            margin-top:-20px;
+            margin-bottom:10px;
         }
 
         .book-div{
@@ -56,11 +75,17 @@
             background-color: darkgreen;
             font-weight: bold;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <h1>یونی کوڈ کتب</h1>
-    
+    <div class="search-book">
+        <input type="text" id="book-search" placeholder="کتاب تلاش کریں" oninput="filterBooks()">
+    </div>
     <div class="container">
         <div class="book-div">
             <p class="book-name">تاریخ طبری جلد 1</p>
@@ -103,5 +128,7 @@
             <a href="Fasl-ul-Khitab-Fatiha-til-Kitab.html" target="_blank"><button class="read-btn" type="button">پڑھیں</button></a>
         </div>
     </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
