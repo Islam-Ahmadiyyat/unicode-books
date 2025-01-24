@@ -4,7 +4,7 @@ let currentPage = 1;
 
 async function loadPages() {
     try {
-        const response = await fetch('Fasl-ul-Khitab-Fatiha-til-Kitab.json'); // Replace with your JSON file path
+        const response = await fetch('tarikh-ibn-kasir-v5.json'); // Replace with your JSON file path
         const data = await response.json();
         pages = data; // Store the JSON objects in the `pages` array
         renderPage(currentPage);
@@ -30,7 +30,7 @@ function renderPage(pageNumber) {
     const page = pages.find(p => p.pageNo === pageNumber);
     textContainer.innerHTML = `<p>${page ? page.pageText : 'Page not found'}</p>`;
     //textContainer.innerHTML = `<p>${pages[pageNumber - 1]}</p>`;
-    //document.getElementById('page-info').textContent = `Page ${pageNumber}`;
+   // document.getElementById('page-info').textContent = `Page ${pageNumber}`;
 
     // Update the page number input field
     document.getElementById('page-number-search').value = pageNumber;
@@ -87,7 +87,7 @@ function handlePageNumberSearch() {
     
         let found = false; // Flag to track if any match is found
         let results = []; // Store all the matching pages
-    
+        
         // Clear the page number input field
         document.getElementById('page-number-search').value = "";
 
@@ -115,6 +115,7 @@ function handlePageNumberSearch() {
                 pageElement.classList.add('matching-page');
                 pageElement.innerHTML = `<h3>Page ${page.pageNo}</h3><p>${page.pageText}</p>`;
                 textContainer.appendChild(pageElement); // Add the page to the container
+
             });
         } 
 
@@ -127,3 +128,9 @@ function handlePageNumberSearch() {
 
 // Initialize the first page
 loadPages();
+
+
+    //else {
+        // Show message when no results are found
+      //  textContainer.innerHTML = 'No results found.';
+    //}
